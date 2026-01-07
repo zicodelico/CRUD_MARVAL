@@ -1,0 +1,14 @@
+create database proyectosmarval;
+DROP TABLE proyectos;
+use proyectosmarval;
+
+CREATE TABLE proyectos (
+  Id_del_Proyecto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50),
+  ciudad VARCHAR(50),
+  Estado VARCHAR(20)
+);
+
+insert into proyectos values(null,"Bosques del hato","piedecuesta","termindo");
+
+select * from proyectos;
