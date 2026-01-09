@@ -12,3 +12,7 @@ CREATE TABLE proyectos (
 insert into proyectos values(null,"Bosques del hato","piedecuesta","termindo");
 
 select * from proyectos;
+
+update proyectos set proyectos.nombre = 'Serrania del hato',proyectos.ciudad = 'floridadblanaca',proyectos.estado = 'En constrccion'where proyectos.Id_del_Proyecto =3 ;
+
+delete from proyectos where proyectos.Id_del_Proyecto =3 ;
