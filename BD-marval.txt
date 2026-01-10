@@ -1,18 +1,88 @@
+-- ============================================
+-- CREACIÓN DE LA BASE DE DATOS
+-- ============================================
+-- Crea una base de datos llamada proyectosmarval
+-- Aquí se almacenará toda la información del CRUD
 create database proyectosmarval;
+
+
+-- ============================================
+-- ELIMINACIÓN DE LA TABLA (SI EXISTE)
+-- ============================================
+-- Elimina la tabla proyectos
+-- Se usa normalmente durante pruebas para reiniciar datos
 DROP TABLE proyectos;
+
+
+-- ============================================
+-- SELECCIÓN DE LA BASE DE DATOS
+-- ============================================
+-- Indica que todas las operaciones siguientes
+-- se ejecutarán sobre la base de datos proyectosmarval
 use proyectosmarval;
 
+
+-- ============================================
+-- CREACIÓN DE LA TABLA PROYECTOS
+-- ============================================
+-- Define la estructura de la tabla que usará el CRUD
 CREATE TABLE proyectos (
+
+  -- Clave primaria de la tabla
+  -- AUTO_INCREMENT genera el ID automáticamente
   Id_del_Proyecto INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+  -- Nombre del proyecto
+  -- VARCHAR(50) permite hasta 50 caracteres
   nombre VARCHAR(50),
+
+  -- Ciudad donde se desarrolla el proyecto
   ciudad VARCHAR(50),
+
+  -- Estado actual del proyecto
+  -- Ejemplos: En construcción, Terminado, Sobre planos
   Estado VARCHAR(20)
 );
 
-insert into proyectos values(null,"Bosques del hato","piedecuesta","termindo");
 
+-- ============================================
+-- INSERT (CREATE)
+-- ============================================
+-- Inserta un registro de prueba en la tabla
+-- null permite que MySQL asigne automáticamente el ID
+insert into proyectos values(
+  null,
+  "Bosques del hato",
+  "piedecuesta",
+  "termindo"
+);
+
+
+-- ============================================
+-- SELECT (READ)
+-- ============================================
+-- Consulta todos los registros de la tabla proyectos
+-- Esta sentencia es la que usa el Treeview en Tkinter
 select * from proyectos;
 
-update proyectos set proyectos.nombre = 'Serrania del hato',proyectos.ciudad = 'floridadblanaca',proyectos.estado = 'En constrccion'where proyectos.Id_del_Proyecto =3 ;
 
-delete from proyectos where proyectos.Id_del_Proyecto =3 ;
+-- ============================================
+-- UPDATE (UPDATE)
+-- ============================================
+-- Actualiza un proyecto específico usando su ID
+-- Modifica nombre, ciudad y estado
+update proyectos 
+set 
+  proyectos.nombre = 'Serrania del hato',
+  proyectos.ciudad = 'floridadblanaca',
+  proyectos.estado = 'En constrccion'
+where proyectos.Id_del_Proyecto = 3;
+
+
+-- ============================================
+-- DELETE (DELETE)
+-- ============================================
+-- Elimina un proyecto usando su ID
+-- Esta operación borra el registro definitivamente
+delete from proyectos 
+where proyectos.Id_del_Proyecto = 3;
